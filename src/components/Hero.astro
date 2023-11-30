@@ -1,0 +1,53 @@
+<div class="hero">
+  <img src="/img/logo.png" />
+  <h1>Latin trifft Mundart</h1>
+</div>
+
+<style>
+  .hero {
+    width: 100%;
+    padding: 100px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  img {
+    max-width: 90vw;
+    animation-name: fadedown;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  h1 {
+    animation-name: fadeup;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+    animation-delay: 500;
+    opacity: 0;
+    transform: translateY(50px);
+    font-size: 2em;
+    color: var(--orange)
+  }
+  @keyframes fadeup {
+    0% {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes fadedown {
+    0% {
+      opacity: 0;
+      transform: translateY(-50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
