@@ -16,14 +16,39 @@ const { title } = Astro.props;
       <slot />
     </article>
     <Footer />
-  </body><style is:global>
-    * {
-      font-family: "Montserrat", sans-serif;
-      --white: white;
-      --yellow: #ddcc14;
-      --orange: #df6225;
-      --brown: #171616;
-      --black: #171616;
-    }
-  </style>
+    <style is:global>
+      * {
+        font-family: "Raleway", sans-serif;
+        --white: white;
+        --yellow: #ddcc14;
+        --orange: #df6225;
+        --brown: #171616;
+        --black: #171616;
+      }
+      body {
+        background: #33cccc; /* Fallback */
+        animation: color 5s infinite linear;
+      }
+      @keyframes color {
+        0% {
+          background: #33cccc;
+        }
+        20% {
+          background: #33cc36;
+        }
+        40% {
+          background: #b8cc33;
+        }
+        60% {
+          background: #fcca00;
+        }
+        80% {
+          background: #33cc36;
+        }
+        100% {
+          background: #33cccc;
+        }
+      }
+    </style>
+  </body>
 </html>

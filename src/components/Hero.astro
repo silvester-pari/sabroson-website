@@ -1,6 +1,15 @@
+---
+import Social from "../components/Social.astro";
+---
+
 <div class="hero">
   <img src="/img/logo.png" />
-  <h1>Latin trifft Mundart</h1>
+  <h1>Latin</h1>
+  <h1>trifft</h1>
+  <h1>Mundart</h1>
+  <div class="social">
+    <Social />
+  </div>
 </div>
 
 <style>
@@ -14,21 +23,31 @@
   }
   img {
     max-width: 90vw;
-    animation-name: fadedown;
-    animation-duration: 2s;
-    animation-fill-mode: forwards;
     opacity: 0;
     transform: translateY(-50px);
+    animation:
+      fadedown 2s forwards,
+      pulse 2s infinite;
   }
   h1 {
-    animation-name: fadeup;
-    animation-duration: 3s;
-    animation-fill-mode: forwards;
-    animation-delay: 500;
-    opacity: 0;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 17vw;
+    margin: 0;
+    color: rgba(225, 225, 225, 0.01);
+    background-repeat: repeat;
+    background-image: url("/img/collage.jpg");
+    -webkit-background-clip: text;
+    background-clip: text;
+    background-size: cover;
+  }
+  h1,
+  .social {
     transform: translateY(50px);
-    font-size: 2em;
-    color: var(--orange)
+    opacity: 0;
+    animation:
+      fadeup 3s forwards,
+      animate 7s infinite;
   }
   @keyframes fadeup {
     0% {
@@ -48,6 +67,34 @@
     100% {
       opacity: 1;
       transform: translateY(0);
+    }
+  }
+  @keyframes pulse {
+    0% {
+      transform: scale(0.95);
+    }
+
+    70% {
+      transform: scale(1);
+    }
+
+    100% {
+      transform: scale(0.95);
+    }
+  }
+  @keyframes animate {
+    0%,
+    100% {
+      background-position: left top;
+    }
+    25% {
+      background-position: right bottom;
+    }
+    50% {
+      background-position: left bottom;
+    }
+    75% {
+      background-position: right top;
     }
   }
 </style>
