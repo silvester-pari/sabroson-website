@@ -1,0 +1,220 @@
+---
+---
+<section class="promoted-events">
+  <div class="background-effects"></div>
+  <div class="events-container">
+    <a href="https://www.bandsintown.com/t/107379261" target="_blank" rel="noopener noreferrer" class="event-link fania">
+      <div class="flyer-wrapper">
+        <img src="/img/2026fania.jpeg" alt="Fania 2026 Event" />
+        <div class="overlay">
+          <span class="cta-main">🌴 AB IN DIE TROPEN!</span>
+          <span class="cta-sub">KLICK FÜR TICKETS!</span>
+        </div>
+      </div>
+    </a>
+    <a href="https://www.bandsintown.com/t/107490253" target="_blank" rel="noopener noreferrer" class="event-link replugged">
+      <div class="flyer-wrapper">
+        <img src="/img/2026replugged.jpeg" alt="Replugged 2026 Event" />
+        <div class="overlay">
+          <span class="cta-main">🌶️ VORSICHT: SCHARF!</span>
+          <span class="cta-sub">GÖNN DIR EIN TICKET!</span>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<style>
+  .promoted-events {
+    position: relative;
+    padding: 2rem 1rem;
+    margin: 2rem 0;
+    overflow: hidden;
+    background-color: var(--brown);
+    border-top: 5px solid var(--orange);
+    border-bottom: 5px solid var(--yellow);
+    text-align: center;
+  }
+
+  .background-effects {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+      45deg,
+      var(--brown),
+      var(--brown) 10px,
+      #2a2a2a 10px,
+      #2a2a2a 20px
+    );
+    opacity: 0.5;
+    z-index: 0;
+  }
+
+  .events-container {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem; /* Increased gap for better mobile spacing */
+    align-items: center;
+    justify-content: center;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  @media (min-width: 768px) {
+    .events-container {
+      flex-direction: row;
+      gap: 4rem;
+    }
+  }
+
+  .event-link {
+    display: block;
+    width: 100%;
+    max-width: 350px;
+    transition: transform 0.2s;
+    text-decoration: none;
+    position: relative;
+  }
+
+  .flyer-wrapper {
+    position: relative;
+    border: 4px solid var(--white);
+    box-shadow: 8px 8px 0px var(--orange);
+    transition: all 0.2s ease-in-out;
+    background: var(--black);
+    overflow: hidden; /* Important for desktop hover effect scaling */
+  }
+
+  .event-link:hover .flyer-wrapper {
+    transform: scale(1.05) rotate(-2deg);
+    box-shadow: 12px 12px 0px var(--yellow);
+    border-color: var(--yellow);
+    z-index: 10;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+    /* The frantic animation for the image itself */
+    animation: frantic-zoom 4s infinite alternate ease-in-out;
+  }
+  
+  /* Different timing for the second image */
+  .replugged img {
+    animation-duration: 3.5s;
+    animation-delay: 0.5s;
+  }
+
+  .fania .flyer-wrapper {
+    animation: frantic-shake 3s infinite;
+  }
+  
+  .replugged .flyer-wrapper {
+    animation: frantic-shake 4s infinite reverse;
+  }
+
+  /* CRAZY OVERLAY */
+  /* Default Mobile Styles: Position Relative (below image), Visible */
+  .overlay {
+    position: relative;
+    background: var(--yellow);
+    color: var(--black);
+    padding: 0.8rem;
+    width: 100%;
+    border-top: 4px solid var(--black);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    opacity: 1; /* Always visible on mobile */
+    z-index: 20;
+    /* Reset transforms for mobile layout */
+    top: auto;
+    left: auto;
+    transform: none;
+    box-shadow: none;
+  }
+
+  .cta-main {
+    font-size: 1.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 1.1;
+    font-family: "Courier New", Courier, monospace;
+    display: block;
+  }
+
+  .cta-sub {
+    font-size: 0.9rem;
+    font-weight: bold;
+    background: var(--black);
+    color: var(--white);
+    padding: 0.2rem 0.5rem;
+    align-self: center;
+    transform: rotate(-1deg);
+    margin-top: 0.3rem;
+  }
+
+  /* DESKTOP HOVER STYLES */
+  @media (min-width: 768px) {
+    .overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-10deg) scale(0);
+      /* Start hidden and small on desktop */
+      width: 90%;
+      border: 3px solid var(--black); /* Full border on desktop */
+      border-top: 3px solid var(--black); /* Reset explicit top */
+      box-shadow: 5px 5px 0px var(--white);
+      opacity: 0;
+      pointer-events: none; /* Let clicks pass through to the link */
+      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease;
+    }
+
+    /* Show overlay on hover with a pop */
+    .event-link:hover .overlay {
+      transform: translate(-50%, -50%) rotate(-5deg) scale(1);
+      opacity: 1;
+    }
+
+    .cta-main {
+      font-size: 1.8rem;
+    }
+  
+    .cta-sub {
+      font-size: 1rem;
+      transform: rotate(2deg);
+      margin-top: 0.5rem;
+    }
+  }
+
+  /* Keyframes for the "frantic" effect */
+  @keyframes frantic-zoom {
+    0% { transform: scale(1); }
+    25% { transform: scale(1.1); }
+    50% { transform: scale(1.05); }
+    75% { transform: scale(1.15); }
+    100% { transform: scale(1); }
+  }
+
+  @keyframes frantic-shake {
+    0% { transform: rotate(0deg) translate(0, 0); }
+    10% { transform: rotate(1deg) translate(1px, 1px); }
+    20% { transform: rotate(-1deg) translate(-1px, -2px); }
+    30% { transform: rotate(0.5deg) translate(-2px, 1px); }
+    40% { transform: rotate(-0.5deg) translate(2px, -1px); }
+    50% { transform: rotate(1deg) translate(-1px, 2px); }
+    60% { transform: rotate(-1deg) translate(1px, -1px); }
+    70% { transform: rotate(0.5deg) translate(2px, 1px); }
+    80% { transform: rotate(-0.5deg) translate(-1px, -2px); }
+    90% { transform: rotate(1deg) translate(1px, 2px); }
+    100% { transform: rotate(0deg) translate(0, 0); }
+  }
+</style>
