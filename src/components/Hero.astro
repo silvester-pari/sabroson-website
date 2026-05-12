@@ -2,6 +2,7 @@
 ---
 
 <div class="hero">
+  <div class="sunburst"></div>
   <div class="hero-content">
     <div class="logo-wrapper">
       <img src="/img/logo.png" alt="Sabroson Logo" class="logo" />
@@ -22,9 +23,39 @@
     justify-content: center;
     align-items: center;
     min-height: 90vh;
-    background-color: var(--paper-white);
     border-bottom: var(--border-width) solid var(--ink-black);
+    position: relative;
+    overflow: hidden;
+    background-color: var(--paper-white);
   }
+
+  .sunburst {
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    width: 300%;
+    height: 300%;
+    /* Use explicit rgba values to avoid variable hydration issues */
+    background: 
+      radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.6) 0%, transparent 50%),
+      repeating-conic-gradient(from 0deg, transparent 0deg 15deg, rgba(245, 130, 32, 0.15) 15deg 30deg);
+    z-index: 1;
+    pointer-events: none;
+    animation: sunburst-rotate 120s infinite linear;
+    transition: filter 0.3s ease-out;
+  }
+
+  /* Sunburst reaction to logo hover */
+  .hero:has(.logo:hover) .sunburst {
+    animation-duration: 15s;
+    filter: saturate(1.8) brightness(1.2);
+  }
+
+  @keyframes sunburst-rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
   .hero-content {
     display: flex;
     justify-content: center;
@@ -32,6 +63,7 @@
     width: 100%;
     max-width: 1400px;
     position: relative;
+    z-index: 2;
     overflow: visible;
   }
 
@@ -52,19 +84,44 @@
     border: none;
     box-shadow: none;
     filter: drop-shadow(10px 10px 0px var(--ink-black));
-    animation: pulse-rotate 4s infinite ease-in-out;
+    animation: energetic-vibe 4s infinite ease-in-out;
+    transform-origin: center center;
+    cursor: pointer;
   }
 
-  @keyframes pulse-rotate {
-    0% {
-      transform: rotate(-2deg) scale(1);
+  @keyframes energetic-vibe {
+    0%, 100% {
+      transform: scale(1);
     }
     50% {
-      transform: rotate(-1deg) scale(1.05);
+      transform: scale(1.05);
     }
-    100% {
-      transform: rotate(-2deg) scale(1);
-    }
+  }
+
+  .logo:hover {
+    animation: super-crazy 0.5s infinite linear;
+  }
+
+  /* Easter Egg: Activate tropical colors and jitter only on logo hover */
+  .logo:hover ~ .tagline .word-latin {
+    animation: tropical-colors 2s infinite step-end, word-jitter 0.3s infinite alternate ease-in-out;
+  }
+  .logo:hover ~ .tagline .word-mundart {
+    animation: tropical-colors 2s infinite step-end 1s, word-jitter 0.35s infinite alternate ease-in-out;
+  }
+  .logo:hover ~ .tagline .word-trifft {
+    animation: word-jitter 0.6s infinite alternate ease-in-out;
+  }
+
+  /* Tagline background reaction only to logo hover */
+  .logo:hover ~ .tagline {
+    animation: tagline-crazy 0.4s infinite alternate ease-in-out;
+    background: var(--sunset-orange);
+  }
+
+  @keyframes tagline-crazy {
+    from { transform: translateY(0) rotate(-0.8deg); }
+    to { transform: translateY(0) rotate(0.8deg); }
   }
 
   .tagline {
@@ -79,16 +136,16 @@
     border: var(--border-width) solid var(--ink-black);
     padding: 1.5rem 3rem;
     box-shadow: var(--shadow-offset) var(--shadow-offset) 0px var(--ink-black);
-    animation: banner-wave 6s infinite ease-in-out;
+    animation: banner-float 5s infinite ease-in-out;
     box-sizing: border-box;
+    transition: background 0.3s ease;
     /* Inverted triangular notches */
     clip-path: polygon(0% 0%, 100% 0%, 97% 50%, 100% 100%, 0% 100%, 3% 50%);
   }
 
-  @keyframes banner-wave {
-    0%, 100% { transform: rotate(1deg) translateY(0); }
-    33% { transform: rotate(-1deg) translateY(-5px); }
-    66% { transform: rotate(2deg) translateY(5px); }
+  @keyframes banner-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
   }
 
   @media (max-width: 600px) {
@@ -106,7 +163,7 @@
   h1.word {
     font-weight: normal;
     text-transform: uppercase;
-    font-size: clamp(2.2rem, 7.5vw, 6rem);
+    font-size: clamp(2.2rem, 7.5vw, 5.5rem);
     line-height: 0.9;
     margin: 0;
     color: var(--ink-black);
@@ -120,18 +177,25 @@
     transition: color 0.2s;
   }
 
-  .word-latin {
-    animation: tropical-colors 4s infinite step-end;
+  @keyframes word-jitter {
+    from { transform: translateX(-1px) rotate(-0.5deg); }
+    to { transform: translateX(1px) rotate(0.5deg); }
   }
-  .word-mundart {
-    animation: tropical-colors 4s infinite step-end 2s;
+
+  @keyframes super-crazy {
+    0% { transform: scale(1.1) rotate(0deg) skew(0deg); }
+    25% { transform: scale(1.2) rotate(5deg) skew(5deg); }
+    50% { transform: scale(1.1) rotate(0deg) skew(0deg); }
+    75% { transform: scale(1.2) rotate(-5deg) skew(-5deg); }
+    100% { transform: scale(1.1) rotate(0deg) skew(0deg); }
   }
 
   @keyframes tropical-colors {
     0%, 100% { color: var(--ink-black); }
-    25% { color: var(--deep-terracotta); }
-    50% { color: var(--jungle-green); }
-    75% { color: var(--muted-teal); }
+    20% { color: var(--deep-terracotta); }
+    40% { color: var(--jungle-green); }
+    60% { color: var(--muted-teal); }
+    80% { color: var(--sunset-orange); }
   }
   
   .word-trifft {
