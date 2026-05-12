@@ -1,12 +1,156 @@
-<div style="text-align: center; width: 100%">
-  Schreib' uns! <span class="e-mail" data-user="aloh" data-website="ta.nosorbas"
-  ></span>
-</div>
+---
+---
+<section class="contact-section" id="contact">
+  <div class="content-wrapper">
+    <h2 class="title">KONTAKT</h2>
+    <div class="subtitle-wrap"><span class="subtitle">BUCH UNS FÜR DEINE FIESTA!</span></div>
+
+    <div class="contact-card">
+      <h3>¡SABROSON!</h3>
+      <p>Booking & Management</p>
+      <div class="details">
+        <a 
+          href="#" 
+          class="contact-link email-safe" 
+          data-u="aloh" 
+          data-d="ta.nosorbas"
+        >
+          📧 <span class="e-mail" data-u="aloh" data-d="ta.nosorbas"></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const reverse = (s: string) => s.split('').reverse().join('');
+
+  document.querySelectorAll('.email-safe').forEach((el) => {
+    const link = el as HTMLAnchorElement;
+    const span = link.querySelector('.e-mail');
+    
+    const reveal = () => {
+      const u = reverse(link.dataset.u || '');
+      const d = reverse(link.dataset.d || '');
+      const email = `${u}@${d}`;
+      
+      link.href = `mailto:${email}`;
+      if (span) {
+        span.textContent = email;
+        link.classList.add('is-active');
+      }
+    };
+
+    link.addEventListener('mouseover', reveal, { once: true });
+    link.addEventListener('touchstart', reveal, { once: true });
+    link.addEventListener('focus', reveal, { once: true });
+  });
+</script>
 
 <style>
+  .contact-section {
+    padding: 6rem 1rem;
+    background-color: var(--sun-yellow);
+    border-bottom: var(--border-width) solid var(--ink-black);
+    position: relative;
+    overflow: hidden;
+  }
+  .content-wrapper {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .title {
+    font-size: clamp(3rem, 10vw, 5rem);
+    font-family: var(--font-headings);
+    text-transform: uppercase;
+    color: var(--ink-black);
+    margin-bottom: 0.5rem;
+    transform: rotate(-2deg);
+  }
+  .subtitle-wrap {
+    margin-bottom: 4rem;
+  }
+  .subtitle {
+    font-weight: bold;
+    background: var(--ink-black);
+    color: var(--paper-white);
+    padding: 0.75rem 1.5rem;
+    display: inline-block;
+    font-size: 1.5rem;
+    transform: rotate(1deg);
+    font-family: var(--font-accent);
+    text-transform: uppercase;
+  }
+  .contact-card {
+    background: var(--paper-white);
+    border: var(--border-width) solid var(--ink-black);
+    box-shadow: var(--shadow-offset) var(--shadow-offset) 0px var(--sunset-orange);
+    padding: 3rem 1.5rem;
+    transform: rotate(-1deg);
+    transition: transform 0.1s;
+    width: calc(100% - 1rem);
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+  }
+  .contact-card:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 12px 12px 0px var(--sunset-orange);
+  }
+  h3 {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    color: var(--ink-black);
+    margin-bottom: 0.5rem;
+  }
+  p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--deep-terracotta);
+    margin-bottom: 2rem;
+    font-family: var(--font-body);
+    text-transform: uppercase;
+  }
+  .person .name {
+    font-size: 2rem;
+    font-family: var(--font-headings);
+    display: block;
+    margin-bottom: 1.5rem;
+    color: var(--ink-black);
+  }
+  .details {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+  }
+  .contact-link {
+    background: var(--ink-black);
+    color: var(--paper-white);
+    text-decoration: none;
+    padding: 1rem 1.5rem;
+    font-size: 1.3rem;
+    font-weight: bold;
+    font-family: var(--font-headings);
+    text-transform: uppercase;
+    transition: all 0.1s;
+    width: 100%;
+    max-width: 350px;
+    display: block;
+  }
+  .contact-link:hover {
+    background: var(--sun-yellow);
+    color: var(--ink-black);
+    transform: translate(-4px, -4px);
+    box-shadow: 8px 8px 0px var(--ink-black);
+  }
   .e-mail::before {
-    content: attr(data-website) "\0040" attr(data-user);
+    content: attr(data-d) "\0040" attr(data-u);
     unicode-bidi: bidi-override;
     direction: rtl;
+  }
+  .email-safe.is-active .e-mail::before {
+    display: none;
   }
 </style>

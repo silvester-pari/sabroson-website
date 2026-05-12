@@ -1,100 +1,146 @@
 ---
-import Social from "../components/Social.astro";
 ---
 
 <div class="hero">
-  <img src="/img/logo.png" />
-  <h1>Latin</h1>
-  <h1>trifft</h1>
-  <h1>Mundart</h1>
-  <div class="social">
-    <Social />
+  <div class="hero-content">
+    <div class="logo-wrapper">
+      <img src="/img/logo.png" alt="Sabroson Logo" class="logo" />
+      <div class="tagline">
+        <h1 class="word word-latin">Latin</h1>
+        <h1 class="word word-trifft">trifft</h1>
+        <h1 class="word word-mundart">Mundart</h1>
+      </div>
+    </div>
   </div>
 </div>
 
 <style>
   .hero {
     width: 100%;
-    padding: 100px 0 0px;
+    padding: 2vh 2vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+    background-color: var(--paper-white);
+    border-bottom: var(--border-width) solid var(--ink-black);
+  }
+  .hero-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1400px;
+    position: relative;
+    overflow: visible;
+  }
+
+  .logo-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .logo {
+    width: 100%;
+    max-width: 600px;
+    max-height: 40vh;
+    object-fit: contain;
+    border: none;
+    box-shadow: none;
+    filter: drop-shadow(10px 10px 0px var(--ink-black));
+    animation: pulse-rotate 4s infinite ease-in-out;
+  }
+
+  @keyframes pulse-rotate {
+    0% {
+      transform: rotate(-2deg) scale(1);
+    }
+    50% {
+      transform: rotate(-1deg) scale(1.05);
+    }
+    100% {
+      transform: rotate(-2deg) scale(1);
+    }
+  }
+
+  .tagline {
+    margin-top: 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 95vw;
+    max-width: 1000px;
+    background: var(--sun-yellow);
+    border: var(--border-width) solid var(--ink-black);
+    padding: 1.5rem 3rem;
+    box-shadow: var(--shadow-offset) var(--shadow-offset) 0px var(--ink-black);
+    animation: banner-wave 6s infinite ease-in-out;
+    box-sizing: border-box;
+    /* Inverted triangular notches */
+    clip-path: polygon(0% 0%, 100% 0%, 97% 50%, 100% 100%, 0% 100%, 3% 50%);
   }
-  img {
-    max-width: 90vw;
-    opacity: 0;
-    transform: translateY(-50px);
-    animation:
-      fadedown 2s forwards,
-      pulse 2s infinite;
+
+  @keyframes banner-wave {
+    0%, 100% { transform: rotate(1deg) translateY(0); }
+    33% { transform: rotate(-1deg) translateY(-5px); }
+    66% { transform: rotate(2deg) translateY(5px); }
   }
-  h1 {
-    font-weight: 900;
+
+  @media (max-width: 600px) {
+    .logo {
+      max-height: 50vh;
+      max-width: 800px;
+    }
+    .tagline {
+      padding: 1.5rem 1.5rem;
+      margin-top: 2rem;
+      clip-path: polygon(0% 0%, 100% 0%, 95% 50%, 100% 100%, 0% 100%, 5% 50%);
+    }
+  }
+
+  h1.word {
+    font-weight: normal;
     text-transform: uppercase;
-    font-size: 17vw;
+    font-size: clamp(2.2rem, 7.5vw, 6rem);
+    line-height: 0.9;
     margin: 0;
-    color: rgba(225, 225, 225, 0.01);
-    background-repeat: repeat;
-    background-image: url("/img/collage.jpg");
-    -webkit-background-clip: text;
-    background-clip: text;
-    background-size: cover;
+    color: var(--ink-black);
+    font-family: var(--font-display);
+    text-shadow: none;
+    background: none;
+    -webkit-background-clip: initial;
+    background-clip: initial;
+    text-align: center;
+    width: 100%;
+    transition: color 0.2s;
   }
-  h1,
-  .social {
-    transform: translateY(50px);
-    opacity: 0;
-    animation:
-      fadeup 3s forwards,
-      animate 7s infinite;
-  }
-  @keyframes fadeup {
-    0% {
-      opacity: 0;
-      transform: translateY(50px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  @keyframes fadedown {
-    0% {
-      opacity: 0;
-      transform: translateY(-50px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  @keyframes pulse {
-    0% {
-      transform: scale(0.95);
-    }
 
-    70% {
-      transform: scale(1);
-    }
-
-    100% {
-      transform: scale(0.95);
-    }
+  .word-latin {
+    animation: tropical-colors 4s infinite step-end;
   }
-  @keyframes animate {
-    0%,
-    100% {
-      background-position: left top;
-    }
-    25% {
-      background-position: right bottom;
-    }
-    50% {
-      background-position: left bottom;
-    }
-    75% {
-      background-position: right top;
-    }
+  .word-mundart {
+    animation: tropical-colors 4s infinite step-end 2s;
+  }
+
+  @keyframes tropical-colors {
+    0%, 100% { color: var(--ink-black); }
+    25% { color: var(--deep-terracotta); }
+    50% { color: var(--jungle-green); }
+    75% { color: var(--muted-teal); }
+  }
+  
+  .word-trifft {
+    font-size: clamp(2rem, 6vw, 4rem) !important;
+    font-family: var(--font-accent) !important;
+    margin: 0.5rem 0 !important;
+  }
+
+  .word {
+    opacity: 1;
   }
 </style>

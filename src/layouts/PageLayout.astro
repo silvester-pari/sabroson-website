@@ -10,44 +10,155 @@ const { title } = Astro.props;
     <BaseHead title={title} />
   </head>
   <body>
-    <!--<Header />-->
-    <h1>{title}</h1>
+    <Header />
     <article>
       <slot />
     </article>
     <Footer />
     <style is:global>
+      :root {
+        --sun-yellow: #FFD700;
+        --sunset-orange: #F58220;
+        --deep-terracotta: #D9531E;
+        --jungle-green: #008B45;
+        --muted-teal: #20808D;
+        --paper-white: #F2F2E2;
+        --ink-black: #1A1A1B;
+
+        --font-display: "Permanent Marker", cursive;
+        --font-headings: "Bebas Neue", Impact, sans-serif;
+        --font-body: "Roboto Condensed", Montserrat, sans-serif;
+        --font-accent: "Permanent Marker", cursive;
+
+        --border-width: 4px;
+        --shadow-offset: 8px;
+
+        /* Compatibility */
+        --yellow: var(--sun-yellow);
+        --orange: var(--sunset-orange);
+        --black: var(--ink-black);
+        --brown: var(--ink-black);
+        --white: var(--paper-white);
+      }
+
       * {
-        font-family: "Raleway", sans-serif;
-        --white: white;
-        --yellow: #ddcc14;
-        --orange: #df6225;
-        --brown: #171616;
-        --black: #171616;
+        box-sizing: border-box;
       }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
       body {
-        background: #33cccc; /* Fallback */
-        animation: color 5s infinite linear;
+        background-color: var(--paper-white);
+        color: var(--ink-black);
+        font-family: var(--font-body);
+        margin: 0;
+        overflow-x: hidden;
+        position: relative;
+        line-height: 1.5;
       }
-      @keyframes color {
-        0% {
-          background: #33cccc;
-        }
-        20% {
-          background: #33cc36;
-        }
-        40% {
-          background: #b8cc33;
-        }
-        60% {
-          background: #fcca00;
-        }
-        80% {
-          background: #33cc36;
-        }
-        100% {
-          background: #33cccc;
-        }
+
+      /* Global Noise Texture */
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.05;
+        pointer-events: none;
+        z-index: 9999;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: var(--font-headings);
+        text-transform: uppercase;
+        margin-top: 0;
+        line-height: 1.1;
+      }
+
+      h1 {
+        font-family: var(--font-display);
+        font-size: clamp(3rem, 10vw, 6rem);
+      }
+
+      h2 {
+        font-size: clamp(2rem, 6vw, 4rem);
+        border-bottom: var(--border-width) solid var(--ink-black);
+        display: inline-block;
+        padding-bottom: 0.5rem;
+        margin-bottom: 2rem;
+      }
+
+      h3 {
+        font-family: var(--font-accent);
+        font-size: 1.5rem;
+      }
+
+      section {
+        padding: 4rem 1rem;
+        position: relative;
+        border-bottom: var(--border-width) solid var(--ink-black);
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      /* Sabroson Card */
+      .sabroson-card {
+        background-color: var(--sun-yellow);
+        border: var(--border-width) solid var(--ink-black);
+        box-shadow: var(--shadow-offset) var(--shadow-offset) 0px
+          var(--ink-black);
+        padding: 2rem;
+        transform: rotate(0.5deg);
+      }
+
+      /* Poster Button */
+      .btn-poster {
+        display: inline-block;
+        background-color: var(--sunset-orange);
+        border: 3px solid var(--ink-black);
+        font-family: var(--font-headings);
+        text-transform: uppercase;
+        padding: 12px 30px;
+        cursor: pointer;
+        transition: transform 0.1s, box-shadow 0.1s;
+        text-decoration: none;
+        color: var(--ink-black);
+        font-size: 1.2rem;
+        font-weight: bold;
+      }
+
+      .btn-poster:hover {
+        transform: translate(-3px, -3px);
+        box-shadow: 6px 6px 0px var(--ink-black);
+        background-color: var(--sun-yellow);
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        border: var(--border-width) solid var(--ink-black);
+        box-shadow: var(--shadow-offset) var(--shadow-offset) 0px
+          var(--ink-black);
+        transform: rotate(-1deg);
+        filter: grayscale(0.2) contrast(1.1);
+      }
+
+      .widget-container .bit-widget .bit-play-my-city-wrapper,
+      .widget-container .bit-widget .bit-follow-section-wrapper {
+        display: none !important;
       }
     </style>
   </body>

@@ -1,17 +1,22 @@
-<script charset="utf-8" src="https://widgetv3.bandsintown.com/main.min.js"
-></script>
-<a
-  class="bit-widget-initializer"
+<section class="events-section" id="events">
+  <div class="background-effects"></div>
+  <div class="content-wrapper">
+    <h2 class="title">LIVE</h2>
+    <div class="subtitle-wrap"><span class="subtitle">WO WIR SPIELEN</span></div>
+    
+    <div class="widget-container">
+      <script charset="utf-8" src="https://widgetv3.bandsintown.com/main.min.js"></script>
+      <a
+        class="bit-widget-initializer"
   data-artist-name="id_15531328"
   data-background-color="#ffffff00"
   data-separator-color="#fff"
   data-text-color="#000"
-  data-font="Raleway"
-  data-auto-style="true"
-  data-button-label-capitalization="capitalize"
-  data-header-capitalization=""
-  data-location-capitalization="capitalize"
-  data-venue-capitalization="capitalize"
+  data-font="Roboto Condensed"
+  data-button-label-capitalization="uppercase"
+  data-header-capitalization="uppercase"
+  data-location-capitalization="uppercase"
+  data-venue-capitalization="uppercase"
   data-display-local-dates="true"
   data-local-dates-position="false"
   data-display-past-dates="true"
@@ -22,44 +27,44 @@
   data-display-limit="all"
   data-date-format="D. MMM YYYY"
   data-date-orientation=""
-  data-date-border-color="#4A4A4A"
-  data-date-border-width="1px"
-  data-date-capitalization=""
-  data-date-border-radius="10px"
-  data-event-ticket-cta-size="small"
+  data-date-border-color="#1A1A1B"
+  data-date-border-width="2px"
+  data-date-capitalization="uppercase"
+  data-date-border-radius="0px"
+  data-event-ticket-cta-size="medium"
   data-event-custom-ticket-text=""
   data-event-ticket-text="TICKETS"
   data-event-ticket-icon=""
-  data-event-ticket-cta-text-color="#FFFFFF"
-  data-event-ticket-cta-bg-color="#4A4A4A"
-  data-event-ticket-cta-border-color="#4A4A4A"
+  data-event-ticket-cta-text-color="#F2F2E2"
+  data-event-ticket-cta-bg-color="#1A1A1B"
+  data-event-ticket-cta-border-color="#1A1A1B"
   data-event-ticket-cta-border-width="0px"
-  data-event-ticket-cta-border-radius="4px"
-  data-sold-out-button-text-color="#FFFFFF"
-  data-sold-out-button-background-color="#4A4A4A"
-  data-sold-out-button-border-color="#4A4A4A"
+  data-event-ticket-cta-border-radius="0px"
+  data-sold-out-button-text-color="#F2F2E2"
+  data-sold-out-button-background-color="#1A1A1B"
+  data-sold-out-button-border-color="#1A1A1B"
   data-sold-out-button-clickable="true"
   data-event-rsvp-position="left"
   data-event-rsvp-cta-size="medium"
   data-event-rsvp-only-show-icon=""
-  data-event-rsvp-text="Erinnere mich"
+  data-event-rsvp-text="ERINNERE MICH"
   data-event-rsvp-icon=""
-  data-event-rsvp-cta-text-color="#4A4A4A"
-  data-event-rsvp-cta-bg-color="#FFFFFF"
-  data-event-rsvp-cta-border-color="#4A4A4A"
-  data-event-rsvp-cta-border-width="1px"
-  data-event-rsvp-cta-border-radius="4px"
+  data-event-rsvp-cta-text-color="#1A1A1B"
+  data-event-rsvp-cta-bg-color="#F2F2E2"
+  data-event-rsvp-cta-border-color="#1A1A1B"
+  data-event-rsvp-cta-border-width="2px"
+  data-event-rsvp-cta-border-radius="0px"
   data-follow-section-position="top"
   data-follow-section-alignment="center"
-  data-follow-section-header-text="Auftritte"
+  data-follow-section-header-text="AUFTRITTE"
   data-follow-section-cta-size="medium"
-  data-follow-section-cta-text="Folgen"
+  data-follow-section-cta-text="FOLGEN"
   data-follow-section-cta-icon="true"
-  data-follow-section-cta-text-color="#FFFFFF"
-  data-follow-section-cta-bg-color="#df6225"
-  data-follow-section-cta-border-color="#df6225"
-  data-follow-section-cta-border-width="0px"
-  data-follow-section-cta-border-radius="4px"
+  data-follow-section-cta-text-color="#F2F2E2"
+  data-follow-section-cta-bg-color="#F58220"
+  data-follow-section-cta-border-color="#1A1A1B"
+  data-follow-section-cta-border-width="2px"
+  data-follow-section-cta-border-radius="0px"
   data-play-my-city-position="bottom"
   data-play-my-city-alignment="Center"
   data-play-my-city-header-text="Kein Auftritt in deiner Nähe?"
@@ -85,3 +90,71 @@
   data-affil-code=""
   data-bit-logo-position="bottomRight"
   data-bit-logo-color="#CCCCCC"></a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .events-section {
+    padding: 6rem 1rem;
+    background-color: var(--sunset-orange);
+    border-bottom: var(--border-width) solid var(--ink-black);
+    position: relative;
+    overflow: hidden;
+  }
+  .background-effects {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 20px,
+      rgba(26, 26, 27, 0.05) 20px,
+      rgba(26, 26, 27, 0.05) 40px
+    );
+    z-index: 0;
+  }
+  .content-wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+  .title {
+    font-size: clamp(3rem, 10vw, 5rem);
+    font-family: var(--font-headings);
+    text-transform: uppercase;
+    color: var(--ink-black);
+    margin-bottom: 0.5rem;
+    transform: rotate(0.5deg);
+  }
+  .subtitle-wrap {
+    margin-bottom: 4rem;
+  }
+  .subtitle {
+    font-weight: bold;
+    background: var(--ink-black);
+    color: var(--paper-white);
+    padding: 0.75rem 1.5rem;
+    display: inline-block;
+    font-size: 1.5rem;
+    transform: rotate(-1deg);
+    font-family: var(--font-accent);
+    text-transform: uppercase;
+  }
+  .widget-container {
+    background: var(--paper-white);
+    border: var(--border-width) solid var(--ink-black);
+    box-shadow: var(--shadow-offset) var(--shadow-offset) 0px var(--ink-black);
+    padding: 3rem 1.5rem 1.5rem 1.5rem;
+    transform: rotate(-0.5deg);
+    width: calc(100% - 1rem);
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+  }
+</style>

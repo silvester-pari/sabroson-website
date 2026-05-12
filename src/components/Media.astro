@@ -1,0 +1,261 @@
+---
+---
+<section class="media-section" id="media">
+  <div class="background-effects"></div>
+  <div class="content-wrapper">
+    <h2 class="title">MEDIEN & PRESSE</h2>
+    <div class="subtitle-wrap"><span class="subtitle">SCHAU REIN, HÖR REIN!</span></div>
+
+    <div class="media-container">
+      <div class="video-audio">
+        <div class="media-box">
+          <h3>SOUNDCLOUD</h3>
+          <p>Lausche unserem Hit <b>Cadera de Madera</b> (live)!</p>
+          <a href="https://soundcloud.com/sabroson-266066924/cadera-de-madera" target="_blank" class="btn">JETZT ANHÖREN 🎧</a>
+        </div>
+        <div class="media-box rotate-right">
+          <h3>YOUTUBE</h3>
+          <p>Grünlandfest Steyr & Musikpavillon Linz</p>
+          <a href="https://youtu.be/Irn_hVftdnM" target="_blank" class="btn inline">GRÜNLANDFEST 📺</a>
+          <a href="https://www.dorftv.at/video/46861" target="_blank" class="btn inline">DORFTV LIVE 📺</a>
+        </div>
+      </div>
+
+      <div class="image-wrapper">
+        <img src="/img/Sabroson Konzert Musikpavillon Juli 2025.jpeg" alt="SABROSON Live am Musikpavillon" />
+        <div class="overlay">
+          <span class="cta-main">🔥 FUEGO AUF DER BÜHNE!</span>
+        </div>
+      </div>
+
+      <div class="downloads-box">
+        <h3>PRESSE MATERIAL</h3>
+        <p>Alles, was das Promoter-Herz begehrt!</p>
+        <div class="download-links">
+          <a href="/downloads/20251023_sabroson_kurzinformation.pdf" target="_blank" download class="dl-btn pdf">📄 Kurzinformation (PDF)</a>
+          <a href="/downloads/sabroson_presse_information_bilder.zip" target="_blank" download class="dl-btn zip">🗂️ Presse-Bilder (ZIP)</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .media-section {
+    padding: 6rem 1rem;
+    background-color: var(--jungle-green);
+    border-bottom: var(--border-width) solid var(--ink-black);
+    position: relative;
+    overflow: hidden;
+  }
+  .background-effects {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 15px,
+      rgba(26, 26, 27, 0.05) 15px,
+      rgba(26, 26, 27, 0.05) 30px
+    );
+    z-index: 0;
+  }
+  .content-wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+  .title {
+    font-size: clamp(3rem, 10vw, 5rem);
+    font-family: var(--font-headings);
+    text-transform: uppercase;
+    color: var(--sun-yellow);
+    margin-bottom: 0.5rem;
+    transform: rotate(-1deg);
+  }
+  .subtitle-wrap {
+    margin-bottom: 4rem;
+  }
+  .subtitle {
+    font-weight: bold;
+    background: var(--paper-white);
+    color: var(--ink-black);
+    padding: 0.75rem 1.5rem;
+    display: inline-block;
+    font-size: 1.5rem;
+    transform: rotate(2deg);
+    font-family: var(--font-accent);
+    text-transform: uppercase;
+  }
+  .media-container {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+  .video-audio {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  @media (min-width: 768px) {
+    .video-audio {
+      flex-direction: row;
+    }
+  }
+  .media-box {
+    background: var(--sun-yellow);
+    border: var(--border-width) solid var(--ink-black);
+    box-shadow: 6px 6px 0px var(--ink-black);
+    padding: 2rem;
+    flex: 1;
+    text-align: left;
+    transform: rotate(-1deg);
+    transition: transform 0.1s;
+  }
+  .media-box:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 10px 10px 0px var(--ink-black);
+  }
+  .media-box.rotate-right {
+    transform: rotate(1.5deg);
+    background: var(--paper-white);
+    box-shadow: 6px 6px 0px var(--sunset-orange);
+  }
+  .media-box.rotate-right:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 10px 10px 0px var(--sunset-orange);
+  }
+  .media-box h3 {
+    font-family: var(--font-headings);
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+  }
+  .media-box p {
+    margin-bottom: 1.5rem;
+    color: var(--ink-black);
+    font-family: var(--font-body);
+  }
+  .btn, .dl-btn {
+    display: inline-block;
+    background: var(--ink-black);
+    color: var(--paper-white);
+    padding: 0.8rem 1.2rem;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: var(--font-headings);
+    text-transform: uppercase;
+    transition: all 0.1s;
+    border: none;
+  }
+  .btn.inline {
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+    padding: 0.6rem 1rem;
+    font-size: 1rem;
+  }
+  .btn:hover {
+    background: var(--sunset-orange);
+    color: var(--ink-black);
+    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px 0px var(--ink-black);
+  }
+  
+  .image-wrapper {
+    position: relative;
+    border: var(--border-width) solid var(--ink-black);
+    box-shadow: var(--shadow-offset) var(--shadow-offset) 0px var(--sun-yellow);
+    background: var(--ink-black);
+    overflow: hidden;
+    margin: 2rem 0;
+  }
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: grayscale(0.2) contrast(1.1);
+  }
+  .overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: var(--ink-black);
+    padding: 1rem;
+    text-align: center;
+  }
+  .cta-main {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--sun-yellow);
+    font-family: var(--font-headings);
+    text-transform: uppercase;
+  }
+
+  .downloads-box {
+    background: var(--sunset-orange);
+    border: var(--border-width) solid var(--ink-black);
+    box-shadow: var(--shadow-offset) var(--shadow-offset) 0px var(--ink-black);
+    padding: 3rem 1.5rem;
+    text-align: center;
+    color: var(--ink-black);
+    transform: rotate(-0.5deg);
+    width: calc(100% - 1rem);
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+  }
+  .downloads-box h3 {
+    font-family: var(--font-headings);
+    font-size: 2.5rem;
+    margin-bottom: 0.75rem;
+  }
+  .downloads-box p {
+    font-weight: bold;
+    margin-bottom: 2rem;
+    font-size: 1.3rem;
+    font-family: var(--font-body);
+  }
+  .download-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+  }
+  .dl-btn {
+    font-size: 1.2rem;
+    border: 3px solid var(--ink-black);
+    padding: 1rem 1.5rem;
+  }
+  .dl-btn.pdf {
+    background: var(--paper-white);
+    color: var(--ink-black);
+  }
+  .dl-btn.pdf:hover {
+    background: var(--sun-yellow);
+    transform: translate(-3px, -3px);
+    box-shadow: 6px 6px 0px var(--ink-black);
+  }
+  .dl-btn.zip {
+    background: var(--sun-yellow);
+    color: var(--ink-black);
+  }
+  .dl-btn.zip:hover {
+    background: var(--paper-white);
+    transform: translate(-3px, -3px);
+    box-shadow: 6px 6px 0px var(--ink-black);
+  }
+
+  @keyframes frantic-shake {
+    0% { transform: rotate(0deg) translate(0, 0); }
+    25% { transform: rotate(0.5deg) translate(1px, 2px); }
+    50% { transform: rotate(-0.5deg) translate(-2px, -1px); }
+    75% { transform: rotate(1deg) translate(2px, 1px); }
+    100% { transform: rotate(0deg) translate(0, 0); }
+  }
+</style>
