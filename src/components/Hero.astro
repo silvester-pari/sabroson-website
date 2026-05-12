@@ -136,11 +136,16 @@
     border: var(--border-width) solid var(--ink-black);
     padding: 1.5rem 3rem;
     box-shadow: var(--shadow-offset) var(--shadow-offset) 0px var(--ink-black);
-    animation: banner-float 5s infinite ease-in-out;
+    animation: banner-float 5s infinite ease-in-out, tagline-breathe 8s infinite ease-in-out;
     box-sizing: border-box;
     transition: background 0.3s ease;
     /* Inverted triangular notches */
     clip-path: polygon(0% 0%, 100% 0%, 97% 50%, 100% 100%, 0% 100%, 3% 50%);
+  }
+
+  @keyframes tagline-breathe {
+    0%, 100% { background-color: var(--sun-yellow); }
+    50% { background-color: #ffd900; }
   }
 
   @keyframes banner-float {
@@ -175,6 +180,28 @@
     text-align: center;
     width: 100%;
     transition: color 0.2s;
+  }
+
+  .word-latin {
+    animation: subtle-colors 10s infinite ease-in-out, word-sway 4s infinite alternate ease-in-out;
+  }
+  .word-mundart {
+    animation: subtle-colors 10s infinite ease-in-out 5s, word-sway 4.5s infinite alternate ease-in-out;
+  }
+  .word-trifft {
+    animation: word-sway 6s infinite alternate ease-in-out;
+  }
+
+  @keyframes subtle-colors {
+    0%, 100% { color: var(--ink-black); }
+    25% { color: var(--deep-terracotta); }
+    50% { color: var(--jungle-green); }
+    75% { color: var(--muted-teal); }
+  }
+
+  @keyframes word-sway {
+    from { transform: translateX(-1px) rotate(-0.3deg); }
+    to { transform: translateX(1px) rotate(0.3deg); }
   }
 
   @keyframes word-jitter {
