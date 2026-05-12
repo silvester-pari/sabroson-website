@@ -1,100 +1,237 @@
 ---
-import Social from "../components/Social.astro";
 ---
 
 <div class="hero">
-  <img src="/img/logo.png" />
-  <h1>Latin</h1>
-  <h1>trifft</h1>
-  <h1>Mundart</h1>
-  <div class="social">
-    <Social />
+  <div class="sunburst"></div>
+  <div class="hero-content">
+    <div class="logo-wrapper">
+      <img src="/img/logo.png" alt="Sabroson Logo" class="logo" />
+      <div class="tagline">
+        <h1 class="word word-latin">Latin</h1>
+        <h1 class="word word-trifft">trifft</h1>
+        <h1 class="word word-mundart">Mundart</h1>
+      </div>
+    </div>
   </div>
 </div>
 
 <style>
   .hero {
     width: 100%;
-    padding: 100px 0 0px;
+    padding: 2vh 2vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+    border-bottom: var(--border-width) solid var(--ink-black);
+    position: relative;
+    overflow: hidden;
+    background-color: var(--paper-white);
+  }
+
+  .sunburst {
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    width: 300%;
+    height: 300%;
+    /* Use explicit rgba values to avoid variable hydration issues */
+    background: 
+      radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.6) 0%, transparent 50%),
+      repeating-conic-gradient(from 0deg, transparent 0deg 15deg, rgba(245, 130, 32, 0.15) 15deg 30deg);
+    z-index: 1;
+    pointer-events: none;
+    animation: sunburst-rotate 120s infinite linear;
+    transition: filter 0.3s ease-out;
+  }
+
+  /* Sunburst reaction to logo hover */
+  .hero:has(.logo:hover) .sunburst {
+    animation-duration: 15s;
+    filter: saturate(1.8) brightness(1.2);
+  }
+
+  @keyframes sunburst-rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .hero-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1400px;
+    position: relative;
+    z-index: 2;
+    overflow: visible;
+  }
+
+  .logo-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .logo {
+    width: 100%;
+    max-width: 600px;
+    max-height: 40vh;
+    object-fit: contain;
+    border: none;
+    box-shadow: none;
+    filter: drop-shadow(1px 1px 0px var(--ink-black));
+    animation: energetic-vibe 4s infinite ease-in-out;
+    transform-origin: center center;
+    cursor: pointer;
+  }
+
+  @keyframes energetic-vibe {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+  }
+
+  .logo:hover {
+    animation: super-crazy 0.5s infinite linear;
+  }
+
+  /* Easter Egg: Activate tropical colors and jitter only on logo hover */
+  .logo:hover ~ .tagline .word-latin {
+    animation: tropical-colors 2s infinite step-end, word-jitter 0.3s infinite alternate ease-in-out;
+  }
+  .logo:hover ~ .tagline .word-mundart {
+    animation: tropical-colors 2s infinite step-end 1s, word-jitter 0.35s infinite alternate ease-in-out;
+  }
+  .logo:hover ~ .tagline .word-trifft {
+    animation: word-jitter 0.6s infinite alternate ease-in-out;
+  }
+
+  /* Tagline background reaction only to logo hover */
+  .logo:hover ~ .tagline {
+    animation: tagline-crazy 0.4s infinite alternate ease-in-out;
+    background: var(--sunset-orange);
+  }
+
+  @keyframes tagline-crazy {
+    from { transform: translateY(0) rotate(-0.8deg); }
+    to { transform: translateY(0) rotate(0.8deg); }
+  }
+
+  .tagline {
+    margin-top: 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 95vw;
+    max-width: 1000px;
+    background: var(--sun-yellow);
+    border: var(--border-width) solid var(--ink-black);
+    padding: 1.5rem 3rem;
+    box-shadow: var(--shadow-offset) var(--shadow-offset) 0px var(--ink-black);
+    animation: banner-float 5s infinite ease-in-out, tagline-breathe 8s infinite ease-in-out;
+    box-sizing: border-box;
+    transition: background 0.3s ease;
+    /* Inverted triangular notches */
+    clip-path: polygon(0% 0%, 100% 0%, 97% 50%, 100% 100%, 0% 100%, 3% 50%);
   }
-  img {
-    max-width: 90vw;
-    opacity: 0;
-    transform: translateY(-50px);
-    animation:
-      fadedown 2s forwards,
-      pulse 2s infinite;
+
+  @keyframes tagline-breathe {
+    0%, 100% { background-color: var(--sun-yellow); }
+    50% { background-color: #ffd900; }
   }
-  h1 {
-    font-weight: 900;
+
+  @keyframes banner-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+  }
+
+  @media (max-width: 600px) {
+    .logo {
+      max-height: 50vh;
+      max-width: 800px;
+    }
+    .tagline {
+      padding: 1.5rem 1.5rem;
+      margin-top: 2rem;
+      clip-path: polygon(0% 0%, 100% 0%, 95% 50%, 100% 100%, 0% 100%, 5% 50%);
+    }
+  }
+
+  h1.word {
+    font-weight: normal;
     text-transform: uppercase;
-    font-size: 17vw;
+    font-size: clamp(2.2rem, 7.5vw, 5.5rem);
+    line-height: 0.9;
     margin: 0;
-    color: rgba(225, 225, 225, 0.01);
-    background-repeat: repeat;
-    background-image: url("/img/collage.jpg");
-    -webkit-background-clip: text;
-    background-clip: text;
-    background-size: cover;
+    color: var(--ink-black);
+    font-family: var(--font-display);
+    text-shadow: none;
+    background: none;
+    -webkit-background-clip: initial;
+    background-clip: initial;
+    text-align: center;
+    width: 100%;
+    transition: color 0.2s;
   }
-  h1,
-  .social {
-    transform: translateY(50px);
-    opacity: 0;
-    animation:
-      fadeup 3s forwards,
-      animate 7s infinite;
-  }
-  @keyframes fadeup {
-    0% {
-      opacity: 0;
-      transform: translateY(50px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  @keyframes fadedown {
-    0% {
-      opacity: 0;
-      transform: translateY(-50px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  @keyframes pulse {
-    0% {
-      transform: scale(0.95);
-    }
 
-    70% {
-      transform: scale(1);
-    }
-
-    100% {
-      transform: scale(0.95);
-    }
+  .word-latin {
+    animation: subtle-colors 10s infinite ease-in-out, word-sway 4s infinite alternate ease-in-out;
   }
-  @keyframes animate {
-    0%,
-    100% {
-      background-position: left top;
-    }
-    25% {
-      background-position: right bottom;
-    }
-    50% {
-      background-position: left bottom;
-    }
-    75% {
-      background-position: right top;
-    }
+  .word-mundart {
+    animation: subtle-colors 10s infinite ease-in-out 5s, word-sway 4.5s infinite alternate ease-in-out;
+  }
+  .word-trifft {
+    animation: word-sway 6s infinite alternate ease-in-out;
+  }
+
+  @keyframes subtle-colors {
+    0%, 100% { color: var(--ink-black); }
+    25% { color: var(--deep-terracotta); }
+    50% { color: var(--jungle-green); }
+    75% { color: var(--muted-teal); }
+  }
+
+  @keyframes word-sway {
+    from { transform: translateX(-1px) rotate(-0.3deg); }
+    to { transform: translateX(1px) rotate(0.3deg); }
+  }
+
+  @keyframes word-jitter {
+    from { transform: translateX(-1px) rotate(-0.5deg); }
+    to { transform: translateX(1px) rotate(0.5deg); }
+  }
+
+  @keyframes super-crazy {
+    0% { transform: scale(1.1) rotate(0deg) skew(0deg); }
+    25% { transform: scale(1.2) rotate(5deg) skew(5deg); }
+    50% { transform: scale(1.1) rotate(0deg) skew(0deg); }
+    75% { transform: scale(1.2) rotate(-5deg) skew(-5deg); }
+    100% { transform: scale(1.1) rotate(0deg) skew(0deg); }
+  }
+
+  @keyframes tropical-colors {
+    0%, 100% { color: var(--ink-black); }
+    20% { color: var(--deep-terracotta); }
+    40% { color: var(--jungle-green); }
+    60% { color: var(--muted-teal); }
+    80% { color: var(--sunset-orange); }
+  }
+  
+  .word-trifft {
+    font-size: clamp(2rem, 6vw, 4rem) !important;
+    font-family: var(--font-accent) !important;
+    margin: 0.5rem 0 !important;
+  }
+
+  .word {
+    opacity: 1;
   }
 </style>

@@ -1,0 +1,109 @@
+---
+import PageLayout from "../layouts/PageLayout.astro";
+---
+
+<PageLayout title="Impressum">
+  <div class="impressum-container">
+    <h2>Impressum & Offenlegung</h2>
+    <p>Informationspflicht laut § 5 E-Commerce Gesetz, § 14 Unternehmensgesetzbuch, § 63 Gewerbeordnung und Offenlegungspflicht laut § 25 Mediengesetz.</p>
+    
+    <div class="legal-info">
+      <h3>Vereinsdaten</h3>
+      <p><strong>Name:</strong> Musik- und Kulturverein SABROSON</p>
+      <p><strong>Sitz:</strong> Linz (Linz)</p>
+      <p><strong>c/o:</strong> Helmut Herglotz</p>
+      <p><strong>Zustellanschrift:</strong> 4020 Linz, Ramsauerstraße 40/1, Österreich</p>
+      <p><strong>ZVR-Zahl:</strong> 1940459376</p>
+      <p><strong>Entstehungsdatum:</strong> 16.02.2026</p>
+      
+      <h3>Zuständigkeit</h3>
+      <p>Landespolizeidirektion Oberösterreich - Referat Sicherheitsverwaltung</p>
+
+      <h3>Vereinszweck</h3>
+      <p>Förderung von Musik und Kultur, insbesondere der afro-karibischen und lateinamerikanischen Musik in Verbindung mit österreichischer Musikkultur.</p>
+
+      <h3>Vorstand (Organschaftliche Vertreter)</h3>
+      <ul>
+        <li><strong>Obmann:</strong> Mag. Helmut Herglotz</li>
+        <li><strong>Obmann Stellvertreter:</strong> Martin Lehner</li>
+        <li><strong>Kassierin:</strong> Anna Antensteiner</li>
+        <li><strong>Kassierin Stellvertreter:</strong> Silvester Pari</li>
+        <li><strong>Schriftführerin:</strong> Sarah Baminger</li>
+        <li><strong>Schriftführerin Stellvertreter:</strong> Manfred Wiesinger</li>
+      </ul>
+      
+      <h3>Kontakt</h3>
+      <p><strong>E-Mail:</strong> <a href="mailto:hola@sabroson.at">hola@sabroson.at</a></p>
+      <p><strong>Telefon:</strong> <a href="tel:+4366499281781">+43 664 9928 17 81</a></p>
+
+      <h3>Bankverbindung</h3>
+      <p><strong>Kontoinhaber:</strong> Musik- und Kulturverein SABROSON</p>
+      <p><strong>IBAN:</strong> AT91 2032 0321 0082 0327</p>
+      <p><strong>BIC:</strong> ASPKAT2LXXX</p>
+    </div>
+  </div>
+</PageLayout>
+
+<style>
+  .impressum-container {
+    max-width: 800px;
+    margin: 4rem auto;
+    padding: 3rem 1.5rem;
+    background-color: var(--paper-white);
+    border: var(--border-width) solid var(--ink-black);
+    box-shadow: var(--shadow-offset) var(--shadow-offset) 0px var(--sunset-orange);
+    color: var(--ink-black);
+    transform: rotate(0.5deg);
+    width: calc(100% - 2rem);
+    box-sizing: border-box;
+  }
+
+  h2 {
+    font-family: var(--font-headings);
+    text-transform: uppercase;
+    font-size: 3rem;
+    border-bottom: var(--border-width) solid var(--ink-black);
+    padding-bottom: 0.5rem;
+    margin-bottom: 2rem;
+  }
+
+  h3 {
+    font-family: var(--font-headings);
+    font-size: 1.8rem;
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+    color: var(--deep-terracotta);
+    text-transform: uppercase;
+  }
+
+  p, li {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 0.75rem;
+    font-family: var(--font-body);
+  }
+
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  li {
+    border-left: 4px solid var(--sun-yellow);
+    padding-left: 1rem;
+  }
+
+  a {
+    color: var(--ink-black);
+    font-weight: bold;
+    text-decoration: none;
+    border-bottom: 3px solid var(--sun-yellow);
+    transition: all 0.1s;
+  }
+
+  a:hover {
+    color: var(--ink-black);
+    background-color: var(--sun-yellow);
+    border-bottom-color: var(--ink-black);
+  }
+</style>

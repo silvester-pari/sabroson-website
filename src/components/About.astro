@@ -1,0 +1,285 @@
+---
+---
+<section class="about-section" id="about">
+  <div class="content-wrapper">
+    <h2 class="section-title">¡SABROSON!</h2>
+    <div class="subtitle-wrap"><h3 class="section-subtitle">Tropen, Tanz und tiefe Töne</h3></div>
+    
+    <div class="quote-card">
+      <blockquote>
+        "Mehr als 7.500 Besucher bei Konzerten im Linzer Musikpavillon. [...] Ein besonderes Highlight in dieser Saison war der Auftritt der Afro-Cuban Band ¡Sabroson!, die den Musikpavillon nicht nur bis über den letzten Platz hinaus füllte, sondern auch zum Tanzboden machte."
+      </blockquote>
+      <cite>- Tips.at, Nora Heindl</cite>
+    </div>
+
+    <!-- Image first -->
+    <div class="image-wrapper">
+      <img src="/img/collage posen neu.jpg" alt="SABROSON! Band Collage" />
+    </div>
+
+    <!-- Then description -->
+    <div class="about-text">
+      <p><b>¡SABROSON!</b> ist ein zehnköpfiges Ensemble aus Oberösterreich, das seit 2022 mit mitreißender karibischer Energie die österreichischen Bühnen erobert. Mit einer explosiven Mischung aus Cumbia, Salsa, Merengue und eigenen, frech-österreichischen Texten verbindet die Band lateinamerikanische Rhythmen mit heimischer Musikkultur. Die vielseitige Besetzung mit Bläsern, Rhythmusgruppe, Klavier, Gitarre, Akkordeon, Gesang und traditionellen lateinamerikanischen Instrumenten garantiert energiegeladene Shows, die jedes Publikum zum Tanzen bringt.</p>
+      
+      <div class="about-more hidden">
+        <p>¡SABROSON! wurde im August 2022 in einem kleinen Proberaum in Steyr gegründet. Die bescheidenen Anfänge mit Tuba-Coverversionen von Manu Chao wurde schnell hinter sich gelassen und Wurzeln in der afro-kubanischen und afro-kolumbianischen Musik der Karibik geschlagen. In voller 10-köpfiger Besetzung interpretiert das österreichische Ensemble sowohl Hits bekannter lateinamerikanischer Künstler wie Celia Cruz, Willie Colon oder Ricky Martin, als auch Eigenkompositionen, die sich durch treibende, tanzbare Rhythmen und frechen österreichischen Texten auszeichnen. Die energiegeladenen Konzerte versprühen Lebensfreude und karibische Energie, die die Hallen regelmäßig zum Tanzen bringen. Stilistisch werden Musikstile wie Cumbia, Merengue, Salsa und alles was dazwischen liegt kombiniert. Songs wie die Eigenkomposition <i>Cadera de Madera</i> oder Covers wie der Klassiker <i>La Burrita</i> haben beim Stammpublikum mittlerweile einen fixen Platz im Herzen gefunden.</p>
+      </div>
+      <button class="read-more-btn">MEHR LESEN</button>
+    </div>
+  </div>
+</section>
+
+<section class="members-section">
+  <div class="content-wrapper">
+    <!-- Immediately the members without extra header -->
+    <div class="members-grid">
+      <div class="member-card m1">
+        <span class="name">ANNA</span>
+        <span class="role">Gesang</span>
+      </div>
+      <div class="member-card m2">
+        <span class="name">HELMUT</span>
+        <span class="role">Gitarre, Akkordeon, Gesang</span>
+      </div>
+      <div class="member-card m3">
+        <span class="name">SILVESTER</span>
+        <span class="role">Klavier, Akkordeon, Gesang</span>
+      </div>
+      <div class="member-card m4">
+        <span class="name">LAURENZ</span>
+        <span class="role">Percussion, Gesang</span>
+      </div>
+      <div class="member-card m5">
+        <span class="name">MANFRED</span>
+        <span class="role">Bass</span>
+      </div>
+      <div class="member-card m6">
+        <span class="name">MARTIN</span>
+        <span class="role">Percussion</span>
+      </div>
+      <div class="member-card m7">
+        <span class="name">SARAH</span>
+        <span class="role">Saxofon</span>
+      </div>
+      <div class="member-card m8">
+        <span class="name">ELIAS</span>
+        <span class="role">Trompete</span>
+      </div>
+      <div class="member-card m9">
+        <span class="name">JOSEF</span>
+        <span class="role">Posaune</span>
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+<script>
+  const btn = document.querySelector('.read-more-btn');
+  const moreText = document.querySelector('.about-more');
+  
+  if (btn && moreText) {
+    btn.addEventListener('click', () => {
+      moreText.classList.toggle('hidden');
+      if (moreText.classList.contains('hidden')) {
+        btn.textContent = 'MEHR LESEN';
+      } else {
+        btn.textContent = 'WENIGER LESEN';
+      }
+    });
+  }
+</script>
+
+<style>
+  .hidden {
+    display: none;
+  }
+  .read-more-btn {
+    background: var(--ink-black);
+    color: var(--paper-white);
+    border: var(--border-width) solid var(--ink-black);
+    padding: 0.75rem 1.5rem;
+    font-weight: bold;
+    font-family: var(--font-headings);
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-top: 1.5rem;
+    transition: all 0.1s;
+    display: block;
+    width: 100%;
+    max-width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+  .read-more-btn:hover {
+    background: var(--sunset-orange);
+    color: var(--ink-black);
+    transform: translate(-3px, -3px);
+    box-shadow: 6px 6px 0px var(--ink-black);
+  }
+
+  .about-section {
+    padding: 6rem 1rem;
+    background-color: var(--sun-yellow);
+    border-bottom: var(--border-width) solid var(--ink-black);
+    position: relative;
+    overflow: hidden;
+  }
+  .content-wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+  .section-title {
+    font-size: clamp(3.5rem, 12vw, 6rem);
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    color: var(--ink-black);
+    margin-bottom: 0.5rem;
+    transform: rotate(-1.5deg);
+    border-bottom: none;
+    padding: 0;
+  }
+  .subtitle-wrap {
+    margin-bottom: 4rem;
+  }
+  .section-subtitle {
+    font-weight: bold;
+    background: var(--ink-black);
+    color: var(--paper-white);
+    padding: 0.75rem 1.5rem;
+    display: inline-block;
+    margin: 0;
+    font-size: 1.5rem;
+    transform: rotate(1deg);
+    font-family: var(--font-accent);
+  }
+  
+  .quote-card {
+    background: var(--sunset-orange);
+    color: var(--ink-black);
+    padding: 2.5rem 1.5rem;
+    border: var(--border-width) solid var(--ink-black);
+    box-shadow: var(--shadow-offset) var(--shadow-offset) 0px var(--ink-black);
+    margin-bottom: 4rem;
+    transform: rotate(-0.5deg);
+    width: calc(100% - 1rem);
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+  }
+  blockquote {
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    font-family: var(--font-headings);
+    margin: 0 0 1.5rem 0;
+    line-height: 1.2;
+  }
+  cite {
+    font-weight: bold;
+    display: block;
+    text-align: right;
+    font-family: var(--font-body);
+    text-transform: uppercase;
+  }
+
+  .image-wrapper {
+    margin-bottom: 4rem;
+  }
+  
+  .image-wrapper img {
+    border: var(--border-width) solid var(--ink-black);
+    box-shadow: var(--shadow-offset) var(--shadow-offset) 0px var(--ink-black);
+    transform: rotate(1deg);
+  }
+
+  .about-text {
+    background: var(--paper-white);
+    padding: 3rem 1.5rem;
+    border: var(--border-width) solid var(--ink-black);
+    box-shadow: var(--shadow-offset) var(--shadow-offset) 0px var(--muted-teal);
+    color: var(--ink-black);
+    font-size: 1.2rem;
+    line-height: 1.6;
+    text-align: left;
+    margin-bottom: 4rem;
+    transform: rotate(-0.5deg);
+    width: calc(100% - 1rem);
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+  }
+  .about-text p {
+    margin-bottom: 1.5rem;
+  }
+
+  /* Members Grid */
+  .members-section {
+    padding: 6rem 1rem;
+    background-color: var(--muted-teal);
+    border-bottom: var(--border-width) solid var(--ink-black);
+    position: relative;
+    overflow: hidden;
+  }
+  .members-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+  }
+  .member-card {
+    background: var(--paper-white);
+    border: var(--border-width) solid var(--ink-black);
+    box-shadow: 6px 6px 0px var(--ink-black);
+    padding: 2rem 1.5rem;
+    text-align: center;
+    width: calc(100% - 2rem);
+    max-width: 280px;
+    transition: all 0.1s;
+  }
+  .member-card:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 10px 10px 0px var(--sunset-orange);
+    z-index: 10;
+  }
+  
+  .m1 { transform: rotate(-1deg); }
+  .m2 { transform: rotate(1deg); }
+  .m3 { transform: rotate(-0.5deg); }
+  .m4 { transform: rotate(0.5deg); }
+  .m5 { transform: rotate(-1.2deg); }
+  .m6 { transform: rotate(0.8deg); }
+  .m7 { transform: rotate(-0.7deg); }
+  .m8 { transform: rotate(1.1deg); }
+  .m9 { transform: rotate(-0.9deg); }
+  .m10 { transform: rotate(0.6deg); }
+
+  .name {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: var(--font-headings);
+    color: var(--ink-black);
+    margin-bottom: 0.75rem;
+    line-height: 1.1;
+  }
+  .role {
+    display: block;
+    background: var(--ink-black);
+    color: var(--paper-white);
+    padding: 0.4rem;
+    font-size: 1rem;
+    font-weight: bold;
+    font-family: var(--font-body);
+    text-transform: uppercase;
+  }
+
+  @keyframes frantic-zoom {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+  }
+</style>
